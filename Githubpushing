@@ -1,0 +1,190 @@
+#initialze to vcs
+hari@HARI-LAP:~/Documents$ git init .     
+output :
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/hari/Documents/.git/
+
+
+
+
+# moving to staging process
+hari@HARI-LAP:~/Documents$ git add lxccommands    
+
+
+
+
+#status of the process
+hari@HARI-LAP:~/Documents$ git status
+output :
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   lxccommands
+	
+
+
+	
+# moving to the local repo
+hari@HARI-LAP:~/Documents$ git commit lxccommands 
+
+
+
+
+
+#error came:
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'hari@HARI-LAP.(none)')
+
+
+
+
+
+# another change method  #same error
+hari@HARI-LAP:~/Documents$ git commit -m "lxc commands added" 
+output :
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'hari@HARI-LAP.(none)')
+
+
+
+
+
+#removing global 
+hari@HARI-LAP:~/Documents$ git config user.email "hari2002haran12@gmail.com"
+hari@HARI-LAP:~/Documents$ git config user.name "Hxri02"
+
+
+
+
+
+#successfully committed to local repo
+hari@HARI-LAP:~/Documents$ git commit -m "lxc commands added" 
+output :
+[master (root-commit) 4c8e7dd] lxc commands added
+ 1 file changed, 44 insertions(+)
+ create mode 100644 lxccommands
+hari@HARI-LAP:~/Documents$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+
+
+
+#viewing log data like header position
+hari@HARI-LAP:~/Documents$ git log
+output :
+commit 4c8e7dd8af98c0c84e161ee64e1243fae9e0aa36 (HEAD -> master)
+Author: Hxri02 <hari2002haran12@gmail.com>
+Date:   Thu May 22 18:10:23 2025 +0530
+
+    lxc commands added
+    
+ 
+ 
+ 
+    
+# Next create a new repo on the Github and get the link of the repo 
+
+
+#cloning the github   
+hari@HARI-LAP:~/Documents$ git clone https://github.com/Hxri02/lxccommands.git
+output:
+Cloning into 'lxccommands'...
+warning: You appear to have cloned an empty repository.
+
+
+
+
+
+#viewing
+hari@HARI-LAP:~/Documents$ ll
+total 20
+drwxr-xr-x  4 hari hari 4096 May 22 18:20 ./
+drwxr-x--- 15 hari hari 4096 May 22 18:13 ../
+drwxrwxr-x  8 hari hari 4096 May 22 18:10 .git/
+drwxrwxr-x  3 hari hari 4096 May 22 18:20 lxccommands/
+-rw-rw-r--  1 hari hari 1622 May 22 16:44 lxccommandss
+
+
+
+
+
+# viewing the branch 
+hari@HARI-LAP:~/Documents$ git branch
+output:
+* master
+
+
+
+
+#pushing to remote repo
+hari@HARI-LAP:~/Documents$ git push origin master
+error:
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+
+
+# Error debugging
+hari@HARI-LAP:~/Documents$ git remote -v
+hari@HARI-LAP:~/Documents$ git remote add origin https://github.com/Hxri02/lxccommands.git
+hari@HARI-LAP:~/Documents$ git remote set-url origin https://github.com/Hxri02/lxccommands.git
+
+hari@HARI-LAP:~/Documents$
+
+
+
+
+# Again doing the process 
+hari@HARI-LAP:~/Documents$ git push origin master 
+
+Username for 'https://github.com': Hxri02
+Password for 'https://Hxri02@github.com': 
+output:
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 761 bytes | 761.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Hxri02/lxccommands.git
+ * [new branch]      master -> master
+
