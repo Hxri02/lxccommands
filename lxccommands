@@ -1,0 +1,44 @@
+# apt-get install  -lxc installing LXC
+
+
+# select a container image available on online :  https://images.linuxcontainers.org/
+
+
+# lxc-create --name mycontainer --template download   -
+
+
+# lxc-create --name mycontainer --template download -- --dist alpine --release 3.19 --arch amd64  - 
+eg : lxc-create --name jammy-ubuntu --template download -- --dist ubuntu --release jammy --arch amd64
+output : You just created an Ubuntu jammy amd64 (20250521_07:42) container.
+
+
+# lxc-start --name mycontainer  - starting container
+eg : #lxc-start -n prometheus    #lxc-ls --fancy
+output :  root@HARI-LAP:/home/hari# lxc-ls --fancy
+         NAME         STATE   AUTOSTART GROUPS IPV4       IPV6 UNPRIVILEGED 
+         client1      STOPPED 0         -      -          -    false        
+         client2      STOPPED 0         -      -          -    false        
+         grafana      STOPPED 0         -      -          -    false        
+         jammy-ubuntu STOPPED 0         -      -          -    false        
+         prometheus   RUNNING 0         -      10.0.3.128 -    false      
+
+
+# lxc-info --name mycontainer    - information of container
+
+
+# lxc-ls --fancy   - information of all containers
+output : NAME         STATE   AUTOSTART GROUPS IPV4       IPV6 UNPRIVILEGED 
+         jammy-ubuntu RUNNING 0         -      10.0.3.245 -    false  
+
+
+# lxc-attach --name mycontainer  - start container shell
+output : root@HARI-LAP:/home/hari# lxc-attach -n jammy-ubuntu
+         root@jammy-ubuntu:/# 
+ 
+
+# lxc-stop --name mycontainer  - stop the container 
+
+
+# lxc-destroy --name mycontainer  - permanently delete container 
+
+
